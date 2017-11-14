@@ -21,8 +21,9 @@ exports.up = function(knex, Promise) {
     table.string('Placement_Phone').notNullable();
     table.string('Placement_Email').notNullable();
     table.string('Zone').notNullable();
-    //Track a date of creation
+    //Track a date of creation/udate
     table.timestamp('created_at').defaultTo(knex.fn.now());
+    table.timestamp('updated_at').defaultTo(knex.fn.now());
   })
 };
 
