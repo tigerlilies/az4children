@@ -19,24 +19,30 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', function(req, res) {
   res.render('index', { title: 'DBConfig' });
 })
-
-app.get('/todos', function(req, res) {
-  res.send('get-all route')
+//GET ALL
+app.get('/profiles', function(req, res) {
+  knex.select().from('profiles').then(function(profiles){
+    res.send(profiles)
+  })
 })
 
-app.get('/todos/:id', function(req, res) {
+//GET ONE
+app.get('/profiles/:id', function(req, res) {
   res.send('get-one route')
 })
 
-app.post('/todos', function(req, res) {
+//POST
+app.post('/profiles', function(req, res) {
   res.send('add-one route')
 })
 
-app.put('/todos/:id', function(req, res) {
+//PATCH
+app.put('/profiles/:id', function(req, res) {
   res.send('change/update-one route')
 })
 
-app.delete('/todos/:id', function(req, res) {
+//DELETE
+app.delete('/profiles/:id', function(req, res) {
   res.send('delete/remove-one route')
 })
 
