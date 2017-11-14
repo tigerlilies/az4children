@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('profile', function(table){
+  return knex.schema.createTable('profiles', function(table){
     //All fields
     table.increments();
     table.string('Firstname').notNullable();
@@ -22,11 +22,12 @@ exports.up = function(knex, Promise) {
     table.string('Placement_Email').notNullable();
     table.string('Zone').notNullable();
     //Track a date of creation/udate
-    table.timestamp('created_at').defaultTo(knex.fn.now());
-    table.timestamp('updated_at').defaultTo(knex.fn.now());
+    table.timestamp('Created_at').defaultTo(knex.fn.now());
+    table.timestamp('Updated_at').defaultTo(knex.fn.now());
+    //Don't forget about how to count days from creation date
   })
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('profile');
+  return knex.schema.dropTable('profiles');
 };
