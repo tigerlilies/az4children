@@ -26,15 +26,20 @@ router.post('/profiles', function(req, res, next) {
 //PATCH
 router.put('/profiles/:id', function(req, res, next) {
   knex('profiles').where('id',req.params.id).update(req.body).then(function(profile){
-    res.send(profile);
+    //Grab an update profile
+    knex('profiles').where('id',req.params.id).then(function(profile){
+      res.send(profile);
+    })
   })
 })
 
 //DELETE
 router.delete('/profiles/:id', function(req, res, next) {
   knex('profiles').where('id',req.params.id).del().then(function(profile){
-    //It is working but need to change the destination
-    res.send(profile);
+    //Grab all data
+    knex('profiles').then(function(profiles){
+      res.send(profiles);
+    })
   })
 })
 
