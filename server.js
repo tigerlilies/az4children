@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //   res.render('index', { title: 'DBConfig' });
 // })
 
-app.use('/', childrenprofiles);
+app.use('/api/profiles', childrenprofiles);
 
 app.listen(port, function() {
 console.log("listening on port: ", port);
