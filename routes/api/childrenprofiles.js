@@ -10,11 +10,11 @@ router.get('/', function(req, res) {
 })
 
 //GET BY GENDER
-router.get('/:gender', function(req, res) {
-  knex('profiles').where('gender', req.params.gender).then(function(profiles){
-    res.send(profiles);
-  })
-})
+// router.get('/:gender', function(req, res) {
+//   knex('profiles').where('gender', req.params.gender).then(function(profiles){
+//     res.send(profiles);
+//   })
+// })
 
 //POST
 router.post('/', function(req, res, next) {
@@ -26,6 +26,7 @@ router.post('/', function(req, res, next) {
 //GET ONE
 router.get('/:id', function(req, res, next) {
   knex('profiles').where('id', req.params.id).then(function(profile){
+    console.log(profile)
     res.send(profile);
   })
 })
