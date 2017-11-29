@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('firstname').notNullable();
     table.string('lastname').notNullable();
-    table.string('photo_url');
+    // table.string('photo_url');
     // use string for age?
     table.string('age').notNullable();
     table.string('gender').notNullable();
