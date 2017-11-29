@@ -4,10 +4,44 @@ exports.seed = function(knex, Promise) {
     // Inserts seed entries
     return knex('profiles').insert([
       {
-        id: 1,
         firstname: 'John',
         lastname: 'Doe',
-        // photo_url: 'https://s3.us-east-2.amazonaws.com/g54capstone/person-placeholder.png',
+        age: '10',
+        gender: 'M',
+        summary: 'He loves to cook and experiment with new ingredients',
+        characteristic1: 'Love baseball',
+        characteristic2: 'Pizza',
+        characteristic3: 'Rescue animals',
+        need1: 'People who can play baseball together',
+        need2: 'Volunteer at Rescue animals',
+        need3: 'How to make own pizza',
+        placement: 'Suzy Doe',
+        placement_phone: '602-123-5011',
+        placement_email: 'suzydoe@gmail.com',
+        zone: 'South',
+        created_at: '2017-11-1',
+        updated_at: '2017-11-11'
+      }, {
+        firstname: 'John',
+        lastname: 'Doe',
+        age: '10',
+        gender: 'M',
+        summary: 'Bob is so natural with a violin. He makes the most beautiful music',
+        characteristic1: 'Love baseball',
+        characteristic2: 'Pizza',
+        characteristic3: 'Rescue animals',
+        need1: 'People who can play baseball together',
+        need2: 'Volunteer at Rescue animals',
+        need3: 'How to make own pizza',
+        placement: 'Suzy Doe',
+        placement_phone: '602-123-5011',
+        placement_email: 'suzydoe@gmail.com',
+        zone: 'South',
+        created_at: '2017-11-1',
+        updated_at: '2017-11-11'
+      }, {
+        firstname: 'John',
+        lastname: 'Doe',
         age: '10',
         gender: 'M',
         summary: 'John loves dogs. And he wants to become a baseball player',
@@ -24,10 +58,8 @@ exports.seed = function(knex, Promise) {
         created_at: '2017-11-1',
         updated_at: '2017-11-11'
       }, {
-        id: 2,
         firstname: 'Jane',
         lastname: 'Doe',
-        // photo_url: 'https://s3.us-east-2.amazonaws.com/g54capstone/person-placeholder.png',
         age: '15',
         gender: 'F',
         summary: 'Jane loves cats. And she wants to become a chef',
