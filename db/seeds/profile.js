@@ -4,9 +4,9 @@ exports.seed = function(knex, Promise) {
     // Inserts seed entries
     return knex('profiles').insert([
       {
-        firstname: 'John',
+        firstname: 'Kirk',
         lastname: 'Doe',
-        age: '10',
+        age: '5',
         gender: 'M',
         summary: 'He loves to cook and experiment with new ingredients',
         characteristic1: 'Love baseball',
@@ -22,7 +22,25 @@ exports.seed = function(knex, Promise) {
         created_at: '2017-11-1',
         updated_at: '2017-11-11'
       }, {
-        firstname: 'John',
+        firstname: 'James',
+        lastname: 'Doe',
+        age: '15',
+        gender: 'M',
+        summary: 'He loves to cook and experiment with new ingredients',
+        characteristic1: 'Love baseball',
+        characteristic2: 'Pizza',
+        characteristic3: 'Rescue animals',
+        need1: 'People who can play baseball together',
+        need2: 'Volunteer at Rescue animals',
+        need3: 'How to make own pizza',
+        placement: 'Suzy Doe',
+        placement_phone: '602-123-5011',
+        placement_email: 'suzydoe@gmail.com',
+        zone: 'South',
+        created_at: '2017-11-1',
+        updated_at: '2017-11-11'
+      }, {
+        firstname: 'Bob',
         lastname: 'Doe',
         age: '10',
         gender: 'M',
@@ -42,7 +60,7 @@ exports.seed = function(knex, Promise) {
       }, {
         firstname: 'John',
         lastname: 'Doe',
-        age: '10',
+        age: '8',
         gender: 'M',
         summary: 'John loves dogs. And he wants to become a baseball player',
         characteristic1: 'Love baseball',
@@ -60,7 +78,7 @@ exports.seed = function(knex, Promise) {
       }, {
         firstname: 'Jane',
         lastname: 'Doe',
-        age: '15',
+        age: '12',
         gender: 'F',
         summary: 'Jane loves cats. And she wants to become a chef',
         characteristic1: 'Cooking',
@@ -75,6 +93,60 @@ exports.seed = function(knex, Promise) {
         zone: 'North',
         created_at: '2017-10-1',
         updated_at: '2017-11-9'
+      }, {
+        firstname: 'Andrea',
+        lastname: 'Doe',
+        age: '7',
+        gender: 'F',
+        summary: 'Andrea loves animals. And she wants to become a vet',
+        characteristic1: 'Cooking',
+        characteristic2: 'Soccer',
+        characteristic3: 'Programming',
+        need1: 'People who can teach coding',
+        need2: 'Learn how to bake cakes',
+        need3: 'Play soccer together',
+        placement: 'Richard Foo',
+        placement_phone: '602-222-4000',
+        placement_email: 'kangaroo@gmail.com',
+        zone: 'North',
+        created_at: '2017-10-1',
+        updated_at: '2017-11-9'
+      }, {
+        firstname: 'Susan',
+        lastname: 'Doe',
+        age: '10',
+        gender: 'F',
+        summary: 'She loves to cook and experiment with new ingredients',
+        characteristic1: 'Love baseball',
+        characteristic2: 'Pizza',
+        characteristic3: 'Rescue animals',
+        need1: 'People who can play baseball together',
+        need2: 'Volunteer at Rescue animals',
+        need3: 'How to make own pizza',
+        placement: 'Suzy Doe',
+        placement_phone: '602-123-5011',
+        placement_email: 'suzydoe@gmail.com',
+        zone: 'South',
+        created_at: '2017-11-1',
+        updated_at: '2017-11-11'
+      }, {
+        firstname: 'Marcy',
+        lastname: 'Doe',
+        age: '18',
+        gender: 'F',
+        summary: 'She loves to cook and experiment with new ingredients',
+        characteristic1: 'Love baseball',
+        characteristic2: 'Pizza',
+        characteristic3: 'Rescue animals',
+        need1: 'People who can play baseball together',
+        need2: 'Volunteer at Rescue animals',
+        need3: 'How to make own pizza',
+        placement: 'Suzy Doe',
+        placement_phone: '602-123-5011',
+        placement_email: 'suzydoe@gmail.com',
+        zone: 'South',
+        created_at: '2017-11-1',
+        updated_at: '2017-11-11'
       }
     ]);
   });
