@@ -7,6 +7,7 @@ var logger = require('morgan');
 var knex = require('./db/knex');
 
 var childrenprofiles = require('./routes/api/childrenprofiles');
+var utils = require('./routes/api/utils');
 
 var app = express();
 
@@ -23,7 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // })
 
 app.use('/api/profiles', childrenprofiles);
+app.use('/api/utils', utils);
 
 app.listen(port, function() {
-console.log("listening on port: ", port);
+  console.log("listening on port: ", port);
 })
