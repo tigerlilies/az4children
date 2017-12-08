@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise) {
       {
         firstname: 'Bill',
         lastname: 'Doe',
-        age: '12',
+        age: 12,
         gender: 'M',
         summary: 'He loves to cook and experiment with new ingredients',
         characteristic1: 'Love baseball',
@@ -19,12 +19,12 @@ exports.seed = function(knex, Promise) {
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
-        created_at: '2017-11-1',
+        created_at: '2017-1-1',
         updated_at: '2017-11-11'
       }, {
         firstname: 'Andrew',
         lastname: 'Doe',
-        age: '9',
+        age: 9,
         gender: 'M',
         summary: 'He loves to cook and experiment with new ingredients',
         characteristic1: 'Love baseball',
@@ -37,12 +37,12 @@ exports.seed = function(knex, Promise) {
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
-        created_at: '2017-11-1',
+        created_at: '2017-3-1',
         updated_at: '2017-11-11'
       }, {
         firstname: 'Nathan',
         lastname: 'Doe',
-        age: '7',
+        age: 7,
         gender: 'M',
         summary: 'He loves to cook and experiment with new ingredients',
         characteristic1: 'Love baseball',
@@ -55,12 +55,12 @@ exports.seed = function(knex, Promise) {
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
-        created_at: '2017-11-1',
+        created_at: '2017-5-1',
         updated_at: '2017-11-11'
       }, {
         firstname: 'Kirk',
         lastname: 'Doe',
-        age: '5',
+        age: 5,
         gender: 'M',
         summary: 'He loves to cook and experiment with new ingredients',
         characteristic1: 'Love baseball',
@@ -73,12 +73,12 @@ exports.seed = function(knex, Promise) {
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
-        created_at: '2017-11-1',
+        created_at: '2017-6-1',
         updated_at: '2017-11-11'
       }, {
         firstname: 'James',
         lastname: 'Doe',
-        age: '15',
+        age: 15,
         gender: 'M',
         summary: 'He loves to cook and experiment with new ingredients',
         characteristic1: 'Love baseball',
@@ -91,12 +91,12 @@ exports.seed = function(knex, Promise) {
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
-        created_at: '2017-11-1',
+        created_at: '2017-7-1',
         updated_at: '2017-11-11'
       }, {
         firstname: 'Bob',
         lastname: 'Doe',
-        age: '10',
+        age: 10,
         gender: 'M',
         summary: 'Bob is so natural with a violin. He makes the most beautiful music',
         characteristic1: 'Love baseball',
@@ -109,12 +109,12 @@ exports.seed = function(knex, Promise) {
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
-        created_at: '2017-11-1',
+        created_at: '2017-8-1',
         updated_at: '2017-11-11'
       }, {
         firstname: 'John',
         lastname: 'Doe',
-        age: '8',
+        age: 8,
         gender: 'M',
         summary: 'John loves dogs. And he wants to become a baseball player',
         characteristic1: 'Love baseball',
@@ -127,12 +127,12 @@ exports.seed = function(knex, Promise) {
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
-        created_at: '2017-11-1',
+        created_at: '2017-9-1',
         updated_at: '2017-11-11'
       }, {
         firstname: 'Jane',
         lastname: 'Doe',
-        age: '12',
+        age: 12,
         gender: 'F',
         summary: 'Jane loves cats. And she wants to become a chef',
         characteristic1: 'Cooking',
@@ -150,7 +150,7 @@ exports.seed = function(knex, Promise) {
       }, {
         firstname: 'Andrea',
         lastname: 'Doe',
-        age: '7',
+        age: 7,
         gender: 'F',
         summary: 'Andrea loves animals. And she wants to become a vet',
         characteristic1: 'Cooking',
@@ -168,7 +168,7 @@ exports.seed = function(knex, Promise) {
       }, {
         firstname: 'Susan',
         lastname: 'Doe',
-        age: '10',
+        age: 10,
         gender: 'F',
         summary: 'She loves to cook and experiment with new ingredients',
         characteristic1: 'Love baseball',
@@ -186,7 +186,7 @@ exports.seed = function(knex, Promise) {
       }, {
         firstname: 'Marcy',
         lastname: 'Doe',
-        age: '18',
+        age: 18,
         gender: 'F',
         summary: 'She loves to cook and experiment with new ingredients',
         characteristic1: 'Love baseball',
@@ -199,7 +199,7 @@ exports.seed = function(knex, Promise) {
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
-        created_at: '2017-11-1',
+        created_at: '2017-2-1',
         updated_at: '2017-11-11'
       }
     ]);
