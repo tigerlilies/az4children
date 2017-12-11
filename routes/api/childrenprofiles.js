@@ -9,12 +9,12 @@ router.get('/', function(req, res) {
   })
 })
 
-//GET BY GENDER
-// router.get('/:gender', function(req, res) {
-//   knex('profiles').where('gender', req.params.gender).then(function(profiles){
-//     res.send(profiles);
-//   })
-// })
+//GET MENTOR UNASSIGNED
+router.get('/unassigned', function(req, res) {
+  knex('profiles').where('assign_at', null).then(function(profiles){
+    res.send(profiles);
+  })
+})
 
 //POST
 router.post('/', function(req, res, next) {

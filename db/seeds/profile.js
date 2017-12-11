@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
         zone: 'South',
         created_at: '2017-1-1',
         updated_at: '2017-11-11',
-        assign_at: null
+        assign_at: '2017-10-15'
       }, {
         firstname: 'Andrew',
         lastname: 'Doe',
