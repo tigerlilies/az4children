@@ -5,7 +5,6 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('firstname').notNullable();
     table.string('lastname').notNullable();
-    // table.string('photo_url');
     // use string for age?
     table.integer('age').notNullable();
     table.string('gender').notNullable();
@@ -25,7 +24,8 @@ exports.up = function(knex, Promise) {
     //Track a date of creation/udate
     table.timestamp('created_at').defaultTo(knex.fn.now());
     table.timestamp('updated_at').defaultTo(knex.fn.now());
-    //Don't forget about how to count days from creation date
+    //Track whether or not a mentor has been assigned
+    table.timestamp('assign_at');
   })
 };
 

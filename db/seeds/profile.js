@@ -20,7 +20,8 @@ exports.seed = function(knex, Promise) {
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
         created_at: '2017-1-1',
-        updated_at: '2017-11-11'
+        updated_at: '2017-11-11',
+        assign_at: null
       }, {
         firstname: 'Andrew',
         lastname: 'Doe',
@@ -38,7 +39,8 @@ exports.seed = function(knex, Promise) {
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
         created_at: '2017-3-1',
-        updated_at: '2017-11-11'
+        updated_at: '2017-11-11',
+        assign_at: null
       }, {
         firstname: 'Nathan',
         lastname: 'Doe',
@@ -56,7 +58,8 @@ exports.seed = function(knex, Promise) {
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
         created_at: '2017-5-1',
-        updated_at: '2017-11-11'
+        updated_at: '2017-11-11',
+        assign_at: null
       }, {
         firstname: 'Kirk',
         lastname: 'Doe',
@@ -74,7 +77,8 @@ exports.seed = function(knex, Promise) {
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
         created_at: '2017-6-1',
-        updated_at: '2017-11-11'
+        updated_at: '2017-11-11',
+        assign_at: null
       }, {
         firstname: 'James',
         lastname: 'Doe',
@@ -92,7 +96,8 @@ exports.seed = function(knex, Promise) {
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
         created_at: '2017-7-1',
-        updated_at: '2017-11-11'
+        updated_at: '2017-11-11',
+        assign_at: null
       }, {
         firstname: 'Bob',
         lastname: 'Doe',
@@ -110,7 +115,8 @@ exports.seed = function(knex, Promise) {
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
         created_at: '2017-8-1',
-        updated_at: '2017-11-11'
+        updated_at: '2017-11-11',
+        assign_at: null
       }, {
         firstname: 'John',
         lastname: 'Doe',
@@ -128,7 +134,8 @@ exports.seed = function(knex, Promise) {
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
         created_at: '2017-9-1',
-        updated_at: '2017-11-11'
+        updated_at: '2017-11-11',
+        assign_at: null
       }, {
         firstname: 'Jane',
         lastname: 'Doe',
@@ -146,7 +153,8 @@ exports.seed = function(knex, Promise) {
         placement_email: 'kangaroo@gmail.com',
         zone: 'North',
         created_at: '2017-10-1',
-        updated_at: '2017-11-9'
+        updated_at: '2017-11-9',
+        assign_at: null
       }, {
         firstname: 'Andrea',
         lastname: 'Doe',
@@ -164,7 +172,8 @@ exports.seed = function(knex, Promise) {
         placement_email: 'kangaroo@gmail.com',
         zone: 'North',
         created_at: '2017-10-1',
-        updated_at: '2017-11-9'
+        updated_at: '2017-11-9',
+        assign_at: null
       }, {
         firstname: 'Susan',
         lastname: 'Doe',
@@ -182,7 +191,8 @@ exports.seed = function(knex, Promise) {
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
         created_at: '2017-11-1',
-        updated_at: '2017-11-11'
+        updated_at: '2017-11-11',
+        assign_at: null
       }, {
         firstname: 'Marcy',
         lastname: 'Doe',
@@ -200,7 +210,8 @@ exports.seed = function(knex, Promise) {
         placement_email: 'suzydoe@gmail.com',
         zone: 'South',
         created_at: '2017-2-1',
-        updated_at: '2017-11-11'
+        updated_at: '2017-11-11',
+        assign_at: null
       }
     ]);
   });
