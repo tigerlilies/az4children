@@ -4,16 +4,16 @@ var router = express.Router();
 
 //GET ALL
 router.get('/', function(req, res) {
-  knex('profiles').then(function(profiles){
-    res.send(profiles);
-  })
+  knex('profiles')
+  .then(profiles => res.send(profiles))
+  .catch(err => res.send(err));
 })
 
 //GET MENTOR UNASSIGNED
 router.get('/unassigned', function(req, res) {
-  knex('profiles').where('assign_at', null).then(function(profiles){
-    res.send(profiles);
-  })
+  knex('profiles').where('assign_at', null)
+  .then(profiles => res.send(profiles))
+  .catch(err => res.send(err));
 })
 
 //POST
