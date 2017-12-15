@@ -18,7 +18,7 @@ exports.seed = function(knex, Promise) {
         placement: 'Suzy Doe',
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
-        zone: 'South',
+        zone: 'East',
         created_at: '2017-1-1',
         updated_at: '2017-11-11',
         assign_at: '2017-10-15'
@@ -37,7 +37,7 @@ exports.seed = function(knex, Promise) {
         placement: 'Suzy Doe',
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
-        zone: 'South',
+        zone: 'North',
         created_at: '2017-3-1',
         updated_at: '2017-11-11',
         assign_at: null
@@ -56,7 +56,7 @@ exports.seed = function(knex, Promise) {
         placement: 'Suzy Doe',
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
-        zone: 'South',
+        zone: 'West',
         created_at: '2017-5-1',
         updated_at: '2017-11-11',
         assign_at: null
@@ -75,7 +75,7 @@ exports.seed = function(knex, Promise) {
         placement: 'Suzy Doe',
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
-        zone: 'South',
+        zone: 'East',
         created_at: '2017-6-1',
         updated_at: '2017-11-11',
         assign_at: null
@@ -94,7 +94,7 @@ exports.seed = function(knex, Promise) {
         placement: 'Suzy Doe',
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
-        zone: 'South',
+        zone: 'East',
         created_at: '2017-7-1',
         updated_at: '2017-11-11',
         assign_at: null
@@ -113,7 +113,7 @@ exports.seed = function(knex, Promise) {
         placement: 'Suzy Doe',
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
-        zone: 'South',
+        zone: 'East',
         created_at: '2017-8-1',
         updated_at: '2017-11-11',
         assign_at: null
@@ -132,7 +132,7 @@ exports.seed = function(knex, Promise) {
         placement: 'Suzy Doe',
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
-        zone: 'South',
+        zone: 'East',
         created_at: '2017-9-1',
         updated_at: '2017-11-11',
         assign_at: null
@@ -189,7 +189,7 @@ exports.seed = function(knex, Promise) {
         placement: 'Suzy Doe',
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
-        zone: 'South',
+        zone: 'East',
         created_at: '2017-11-1',
         updated_at: '2017-11-11',
         assign_at: null
@@ -208,7 +208,7 @@ exports.seed = function(knex, Promise) {
         placement: 'Suzy Doe',
         placement_phone: '602-123-5011',
         placement_email: 'suzydoe@gmail.com',
-        zone: 'South',
+        zone: 'East',
         created_at: '2017-2-1',
         updated_at: '2017-11-11',
         assign_at: null
