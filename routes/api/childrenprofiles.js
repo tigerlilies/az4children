@@ -32,7 +32,7 @@ router.get('/:id', function(req, res, next) {
 })
 
 //PATCH
-router.put('/:id', function(req, res, next) {
+router.patch('/:id', function(req, res, next) {
   knex('profiles').where('id', req.params.id).update(req.body).then(function(profile){
     //Grab an update profile
     knex('profiles').where('id', req.params.id).then(function(profile){
