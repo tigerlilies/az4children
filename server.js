@@ -6,8 +6,10 @@ var cors = require('cors');
 var logger = require('morgan');
 var knex = require('./db/knex');
 
+//routes for api
 var childrenprofiles = require('./routes/api/childrenprofiles');
 var utils = require('./routes/api/utils');
+var authentication = require('./routes/api/auth');
 
 var app = express();
 
@@ -19,12 +21,11 @@ app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.get('/', function(req, res) {
-//   res.render('index', { title: 'DBConfig' });
-// })
+
 
 app.use('/api/profiles', childrenprofiles);
 app.use('/api/utils', utils);
+app.use('/api/auth', authentication)
 
 app.listen(port, function() {
   console.log("listening on port: ", port);
