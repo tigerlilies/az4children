@@ -1,39 +1,43 @@
 var knex = require('../../db/knex');
 var express = require('express');
 var router = express.Router();
+var bcrypt = require('bcrypt-nodejs');
+var salt = bcrypt.genSaltSync(5);
+var jwt = require('jwt-simple');
+var config = require('../../config');
 
 var Authentication = require('../../db/controllers/authentication');
 
-// var errormessage = "Email address is in used!"
+function tokenForUser(user) {
+  const timestamp = new Date().getTime();
+  return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
+}
 
 // Post users
 router.post('/signup', function(req, res, next){
+  //encrypt the password
+  var password = bcrypt.hashSync(req.body.password, salt)
 
-  // Check if there is email and password are entered
-  // Need to modify for if statements
-
-  // if (!req.email || !req.password) {
-  //   return res.status(422).send({ error: "You must provide email and password" })
-  // }
-
-  // when email is not used, register email and password to database
-    knex('users').insert(req.body).then(function(user){
+  // when email is not used, register email and salted(encrypted) password to database
+    knex('users').insert({
+      email: req.body.email,
+      password: password
+    }).then(function(user){
+      res.status(200).send("Success!")
       res.send(user)
+      res.json({ token: tokenForUser(user) })
     })
     // if email is used, throw an error message
     .catch(
-      res.status(422).send({ error: "Email is in used!" })
+      function(err){
+        res.status(500).send("Email is in used!")
+      }
     );
 })
 
+router.post('/signin', function(req,res,next){
 
-//Check users -- Delete it later
-// router.get('/users', function(req, res, next) {
-//   knex('users').select('Email').then(function(users){
-//     console.log(users)
-//     res.send(users)
-//   })
-// })
 
+})
 
 module.exports = router;
