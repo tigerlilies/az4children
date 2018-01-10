@@ -6,7 +6,6 @@ var salt = bcrypt.genSaltSync(5);
 var jwt = require('jwt-simple');
 var config = require('../../config');
 
-var Authentication = require('../../db/controllers/authentication');
 
 function tokenForUser(user) {
   const timestamp = new Date().getTime();
@@ -23,7 +22,6 @@ router.post('/signup', function(req, res, next){
       email: req.body.email,
       password: password
     }).then(function(user){
-      res.status(200).send("Success!")
       res.send(user)
       res.json({ token: tokenForUser(user) })
     })
@@ -35,9 +33,34 @@ router.post('/signup', function(req, res, next){
     );
 })
 
-router.post('/signin', function(req,res,next){
+router.post('/signin', function(req, res, next){
+  var submitted_email = req.body.email;
+  var submitted_password = req.body.password;
 
+  //check email and password match to database
+  knex('users').where({
+    'email': submitted_email
+  }).then(function(user){
+    if (user.length > 0) {
+      //store user data
+      var userData = user[0];
+      // submitted_password come first and password from database come to second
+      var isVerified = bcrypt.compareSync(submitted_password, userData.password);
 
+      if (isVerified) {
+        res.json({
+          data: userData
+        });
+      } else {
+          res.status(400).send("Incorrect Password!")
+      }
+    }
+
+  }).catch(
+    function(err){
+      res.status(500).send("Unable to process the request.")
+    }
+  );
 })
 
 module.exports = router;
