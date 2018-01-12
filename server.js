@@ -5,6 +5,7 @@ var port = process.env.PORT || 8000;
 var cors = require('cors');
 var logger = require('morgan');
 var knex = require('./db/knex');
+var jwt = require('jwt-simple');
 
 //routes for api
 var childrenprofiles = require('./routes/api/childrenprofiles');
@@ -25,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api/profiles', childrenprofiles);
 app.use('/api/utils', utils);
-app.use('/api/auth', authentication)
+app.use('/api/auth', authentication);
 
 app.listen(port, function() {
   console.log("listening on port: ", port);

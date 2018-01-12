@@ -1,6 +1,7 @@
 var knex = require('../../db/knex');
 var express = require('express');
 var router = express.Router();
+var jwt = require('jwt-simple');
 
 //GET ALL
 router.get('/', function(req, res) {
@@ -26,7 +27,7 @@ router.post('/', function(req, res, next) {
 //GET ONE
 router.get('/:id', function(req, res, next) {
   knex('profiles').where('id', req.params.id).then(function(profile){
-    console.log(profile)
+    
     res.send(profile);
   })
 })
@@ -50,5 +51,32 @@ router.delete('/:id', function(req, res, next) {
     })
   })
 })
+
+
+// Format of token
+// Authorization: Bearer <access_token>
+
+// Verify token
+function verifyToken(req, res, next){
+
+
+  // Get auth header value
+  var bearerHeader = req.headers['authorization'];
+  console.log('req.headers', bearerHeader)
+  // Check if bearer is undefined
+  if(typeof bearerHeader !== 'undefined') {
+  // Split at the space
+  const bearer = bearerHeader.split(' ');
+  // Get token from array
+  const bearerToken = bearer[1];
+  // Set the token
+  req.token = bearerToken;
+  // Next middleware
+  next();
+  } else {
+  // Forbidden
+    res.sendStatus(403);
+  }
+}
 
 module.exports = router;

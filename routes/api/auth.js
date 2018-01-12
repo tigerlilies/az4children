@@ -7,12 +7,12 @@ var bcrypt = require('bcrypt-nodejs');
 var salt = bcrypt.genSaltSync(5);
 
 
-
-// delete it later
-// function tokenForUser(user) {
-//   const timestamp = new Date().getTime();
-//   return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
-// }
+// Check user have jwt token
+// router.use(function(req,res,next){
+//   console.log("Decoded", decoded)
+//   // var decoded = jwt.decode(userData, config.secret)
+//
+// });
 
 // Post users
 router.post('/signup', function(req, res, next){
@@ -49,10 +49,12 @@ router.post('/signin', function(req, res, next){
       // submitted_password come first and password from database come to second
       var isVerified = bcrypt.compareSync(submitted_password, userData.password);
 
-      //User authenticated, provide a token
+      //User authenticated, provide a web token to a user
       var token = jwt.encode(userData, config.secret)
 
       if (isVerified) {
+        //delete password for being not knowing the hash method
+        delete userData.password;
         res.json({
           userData: userData,
           token: token
@@ -61,7 +63,6 @@ router.post('/signin', function(req, res, next){
           res.status(400).send("User entered the wrong password.")
       }
     }
-
   }).catch(
     function(err){
       res.status(500).send("Unable to process the request.")
