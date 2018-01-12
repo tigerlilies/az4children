@@ -5,7 +5,6 @@ var port = process.env.PORT || 8000;
 var cors = require('cors');
 var logger = require('morgan');
 var knex = require('./db/knex');
-var jwt = require('jwt-simple');
 
 //routes for api
 var childrenprofiles = require('./routes/api/childrenprofiles');

@@ -1,18 +1,19 @@
 var knex = require('../../db/knex');
 var express = require('express');
 var router = express.Router();
-var jwt = require('jwt-simple');
+var jwt = require('jsonwebtoken');
 var config = require('../../config');
 var bcrypt = require('bcrypt-nodejs');
 var salt = bcrypt.genSaltSync(5);
 
-
 // Check user have jwt token
 // router.use(function(req,res,next){
-//   console.log("Decoded", decoded)
+//   // var decoded = jwt.decode(userData, secret);
+//   console.log("Decoded", req); //=> { foo: 'bar' }
 //   // var decoded = jwt.decode(userData, config.secret)
 //
 // });
+
 
 // Post users
 router.post('/signup', function(req, res, next){
@@ -50,7 +51,8 @@ router.post('/signin', function(req, res, next){
       var isVerified = bcrypt.compareSync(submitted_password, userData.password);
 
       //User authenticated, provide a web token to a user
-      var token = jwt.encode(userData, config.secret)
+
+      var token = jwt.sign({user}, config.secret)
 
       if (isVerified) {
         //delete password for being not knowing the hash method

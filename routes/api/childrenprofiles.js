@@ -1,10 +1,16 @@
 var knex = require('../../db/knex');
 var express = require('express');
 var router = express.Router();
-var jwt = require('jwt-simple');
+var jwt = require('jsonwebtoken');
+var config = require('../../config');
+
+var passportService = require('../../services/passport');
+var passport = require('passport');
+
+var requireAuth = passport.authenticate('jwt', { session: false });
 
 //GET ALL
-router.get('/', function(req, res) {
+router.get('/', requireAuth, function(req, res) {
   knex('profiles')
   .then(profiles => res.send(profiles))
   .catch(err => res.send(err));
@@ -27,7 +33,7 @@ router.post('/', function(req, res, next) {
 //GET ONE
 router.get('/:id', function(req, res, next) {
   knex('profiles').where('id', req.params.id).then(function(profile){
-    
+
     res.send(profile);
   })
 })
@@ -52,31 +58,49 @@ router.delete('/:id', function(req, res, next) {
   })
 })
 
+// Router for testing jwt token
+// router.post('/posts', verifyToken, (req, res) => {
+//
+//   jwt.verify(req.token, config.secret, (err, authData) => {
+//     if(err) {
+//       res.sendStatus(403);
+//     } else {
+//       res.json({
+//         message: "Post created...",
+//         authData
+//       })
+//     }
+//   })
+//   res.json({
+//     message: "Post is created"
+//   });
+// });
+
+
 
 // Format of token
 // Authorization: Bearer <access_token>
 
 // Verify token
-function verifyToken(req, res, next){
-
-
-  // Get auth header value
-  var bearerHeader = req.headers['authorization'];
-  console.log('req.headers', bearerHeader)
-  // Check if bearer is undefined
-  if(typeof bearerHeader !== 'undefined') {
-  // Split at the space
-  const bearer = bearerHeader.split(' ');
-  // Get token from array
-  const bearerToken = bearer[1];
-  // Set the token
-  req.token = bearerToken;
-  // Next middleware
-  next();
-  } else {
-  // Forbidden
-    res.sendStatus(403);
-  }
-}
+// function verifyToken(req, res, next){
+//
+//   // Get auth header value
+//   var bearerHeader = req.headers['authorization'];
+//   console.log('req.headers', bearerHeader)
+//   // Check if bearer is undefined
+//   if(typeof bearerHeader !== 'undefined') {
+//   // Split at the space
+//   const bearer = bearerHeader.split(' ');
+//   // Get token from array
+//   const bearerToken = bearer[1];
+//   // Set the token
+//   req.token = bearerToken;
+//   // Next middleware
+//   next();
+//   } else {
+//   // Forbidden
+//     res.sendStatus(403);
+//   }
+// }
 
 module.exports = router;
