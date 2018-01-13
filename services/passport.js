@@ -6,6 +6,8 @@ var config = require('../config');
 var JwtStrategy = require('passport-jwt').Strategy;
 var ExtractJwt = require('passport-jwt').ExtractJwt;
 var LocalStrategy = require('passport-local');
+var jwt = require('jsonwebtoken');
+var bcrypt = require('bcrypt-nodejs');
 
 
 // Create local Strategy
@@ -13,23 +15,26 @@ var localOptions = {
   usernameField: 'email'
 };
 
-var localLogin = new LocalStrategy(localOptions, function(email, password, next){
+var localLogin = new LocalStrategy(localOptions, function(email, password, done){
+
   // Verify this email and password, call next with user
   // if it is the correct email and password
   // otherwise, call next with false.
-  console.log("localLogin", email)
-  console.log("localLogin", password)
 
+  //check email and password match to database
   knex('users').where({
     'email': email
   }).then(function(user){
-    if (!user) { return (null, user); }
-    if (user) { return (null, false); }
-
-    //compare passwords - is `is password` equal to user password
-    
+    if (user.length > 0){
+      //store user data
+      var userData = user[0]
+      // check password is correct from database
+      bcrypt.compareSync(password, userData.password);
+      done (null, userData)
+    } else {
+      done (null, false)
+    }
   })
-
 })
 
 
@@ -63,3 +68,4 @@ var jwtLogin = new JwtStrategy(jwtOptions, function(payload, next){
 
 //Tell passport to use this Strategy
 passport.use(jwtLogin);
+passport.use(localLogin);

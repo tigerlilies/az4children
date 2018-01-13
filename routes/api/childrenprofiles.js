@@ -9,6 +9,7 @@ var passport = require('passport');
 
 var requireAuth = passport.authenticate('jwt', { session: false });
 
+
 //GET ALL
 router.get('/', requireAuth, function(req, res) {
   knex('profiles')
