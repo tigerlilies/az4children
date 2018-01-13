@@ -28,11 +28,21 @@ var localLogin = new LocalStrategy(localOptions, function(email, password, done)
     if (user.length > 0){
       //store user data
       var userData = user[0]
+
+      console.log("Password", password);
+      console.log("Password from database", userData.password)
       // check password is correct from database
-      bcrypt.compareSync(password, userData.password);
-      done (null, userData)
+      var isVerified = bcrypt.compareSync(password, userData.password);
+
+        if (isVerified) {
+          //delete password for being not knowing the hash
+          delete userData.password;
+          done(null, userData)
+        } else {
+          done(null,false)
+        }
     } else {
-      done (null, false)
+      done(null,false)
     }
   })
 })

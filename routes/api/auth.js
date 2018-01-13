@@ -34,12 +34,10 @@ router.post('/signup', requireSignin, function(req, res, next){
 router.post('/signin', requireSignin, function(req,res,next){
   // User has already had their email and password auth'd
   // Provide a token
-  
-  var token = jwt.sign({user: req.body}, config.secret)
+  var timestamp = new Date().getTime();
+  var token = jwt.sign({user: req.body, iat: timestamp}, config.secret)
 
-  res.send(
-    { token: token }
-  )
+  res.send({ token: token })
 })
 
 
