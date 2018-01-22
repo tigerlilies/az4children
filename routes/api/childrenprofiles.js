@@ -1,9 +1,17 @@
 var knex = require('../../db/knex');
 var express = require('express');
 var router = express.Router();
+var jwt = require('jsonwebtoken');
+var config = require('../../config');
+
+var passportService = require('../../services/passport');
+var passport = require('passport');
+
+var requireAuth = passport.authenticate('jwt', { session: false });
 
 //GET ALL
-router.get('/', function(req, res) {
+router.get('/', requireAuth, function(req, res) {
+
   knex('profiles')
   .then(profiles => res.send(profiles))
   .catch(err => res.send(err));
@@ -17,22 +25,22 @@ router.get('/unassigned', function(req, res) {
 })
 
 //POST
-router.post('/', function(req, res, next) {
+router.post('/', requireAuth, function(req, res, next) {
   knex('profiles').insert(req.body).then(function(profile){
     res.send(profile)
   })
 })
 
 //GET ONE
-router.get('/:id', function(req, res, next) {
+router.get('/:id', requireAuth, function(req, res, next) {
   knex('profiles').where('id', req.params.id).then(function(profile){
-    console.log(profile)
+
     res.send(profile);
   })
 })
 
 //PATCH
-router.patch('/:id', function(req, res, next) {
+router.patch('/:id', requireAuth, function(req, res, next) {
   knex('profiles').where('id', req.params.id).update(req.body).then(function(profile){
     //Grab an update profile
     knex('profiles').where('id', req.params.id).then(function(profile){
@@ -42,7 +50,7 @@ router.patch('/:id', function(req, res, next) {
 })
 
 //DELETE
-router.delete('/:id', function(req, res, next) {
+router.delete('/:id', requireAuth, function(req, res, next) {
   knex('profiles').where('id', req.params.id).del().then(function(profile){
     //Grab all data
     knex('profiles').then(function(profiles){
@@ -50,5 +58,6 @@ router.delete('/:id', function(req, res, next) {
     })
   })
 })
+
 
 module.exports = router;
