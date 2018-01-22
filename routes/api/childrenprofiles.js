@@ -26,7 +26,6 @@ router.get('/unassigned', function(req, res) {
 
 //POST
 router.post('/', requireAuth, function(req, res, next) {
-  console.log("POST", req.body)
   knex('profiles').insert(req.body).then(function(profile){
     res.send(profile)
   })
