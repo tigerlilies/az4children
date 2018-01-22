@@ -29,8 +29,6 @@ var localLogin = new LocalStrategy(localOptions, function(email, password, done)
       //store user data
       var userData = user[0]
 
-      console.log("Password", password);
-      console.log("Password from database", userData.password)
       // check password is correct from database
       var isVerified = bcrypt.compareSync(password, userData.password);
 
@@ -47,26 +45,22 @@ var localLogin = new LocalStrategy(localOptions, function(email, password, done)
   })
 })
 
-
-
-
-
-
 //Setup options for JWT Strategy
 var jwtOptions = {
   jwtFromRequest: ExtractJwt.fromHeader('authorization'),
   secretOrKey: config.secret
 };
 
-//Create JWT Strategy
+//Create JWT Strategy ... This is used for checking route
 //"payload" is decoded jwttoken. "done" is call back function
 var jwtLogin = new JwtStrategy(jwtOptions, function(payload, next){
+  // console.log("Jwt Login DECODED", payload.user.email)
   // See if the user ID in the payload exists in our database
   // If it does, call "next" with that other
   // otherwise, call "false" without a user object
-
+  // console.log("JWT LOGIN", payload)
   knex('users').where({
-    'id': payload.user[0].id
+    'email': payload.user.email
   }).then(function(user){
     if (user) {
       next(null, user)
