@@ -7,6 +7,7 @@ var logger = require('morgan');
 var knex = require('./db/knex');
 
 //routes for api
+var publicprofiles = require('./routes/api/publicprofiles');
 var childrenprofiles = require('./routes/api/childrenprofiles');
 var utils = require('./routes/api/utils');
 var authentication = require('./routes/api/auth');
@@ -21,8 +22,7 @@ app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
-
+app.use('/api/public', publicprofiles);
 app.use('/api/profiles', childrenprofiles);
 app.use('/api/utils', utils);
 app.use('/api/auth', authentication);
